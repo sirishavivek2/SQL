@@ -6,6 +6,36 @@
 
   SELECT order_id, order_date, sales_amount FROM orders;
 
-3) 
+3) Filtering with WHERE - Show orders with sales greater than 100.
+
+    SELECT ORDER_ID, SALES_AMOUNT FROM ORDERS WHERE SALES_AMOUNT > 100;
+
+4) Date Filter(year) - Orders placed in 2024
+
+    SELECT * FROM ORDERS WHERE ORDER_DATE BETWEEN '2024-01-01' AND '2024-12-31';
+
+5) Sorting Results - Top 10 largest orders.
+
+    SELECT ORDER_ID, SALES_AMOUNT FROM ORDERS ORDER BY SALES_AMOUNT DESC LIMIT 10;
+
+6) Distinct - List unique store ID's present in orders
+
+    SELECT DISTINCT STORE_ID FROM ORDERS;
+
+7) Basic Aggregation - Total sales across all orders
+
+    SELECT SUM(SALES_AMOUNT) AS TOTAL_SALES FROM ORDERS;
+
+8) Group By (per-store totals) - Total sales and order count per store
+
+    SELECT STORE_ID, SUM(SALES_AMOUNT) AS TOTAL_SALES, COUNT(*) AS ORDER_COUNT FROM ORDERS GROUP BY STORE_ID;
+
+9) Having (filter aggregates) - Stores with total sales > 100,000.
+
+    SELECT STORE_ID, SUM(SALES_AMOUNT) AS TOTAL_SALES FROM ORDERS GROUP BY STORE_ID HAVING SUM(SALES_AMOUNT) > 100000;
+
+10) Aliases for readability - 
+
+    SELECT O.STORE_ID, SUM(O.SALES_AMOUNT) AS TOTAL_SALES, COUNT(*) AS ORDER_COUNT FROM ORDERS O GROUP BY O.STORE_ID;
 
 
