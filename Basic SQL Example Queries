@@ -1,1 +1,11 @@
+1) Show 5 rows from order: Show 5 rows from the orders.
+
+  SELECT * FROM ORDER LIMIT 5;
+
+2) Select specific columns - Return order id, order date, and sales for all orders
+
+  SELECT order_id, order_date, sales_amount FROM orders;
+
+3) 
+
 
